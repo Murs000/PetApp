@@ -8,7 +8,7 @@ using PetApp.Data.Entity.Implementations;
 
 namespace PetApp.Business.Services.Implementations
 {
-    public class PetService : IService<PetModel>
+    public class PetService : IPetService
     {
         private readonly IPetMapper _mapper;
         private readonly IPetPostRepository _repository;
