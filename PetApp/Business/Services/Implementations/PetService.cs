@@ -17,13 +17,13 @@ namespace PetApp.Business.Services.Implementations
             _mapper = mapper;
             _repository = repository;
         }
-        public async Task<PetModel> GetSpendingAsync(int modelId) => _mapper.Map(await _repository.GetAsync(modelId));
+        public async Task<PetModel> GetAsync(int modelId) => _mapper.Map(await _repository.GetAsync(modelId));
 
-        public async Task<List<PetModel>> GetSpendingsAsync() => _mapper.Map(await _repository.GetAsync());
+        public async Task<List<PetModel>> GetAsync() => _mapper.Map(await _repository.GetAsync());
 
-        public Task InsertSpendingAsync(PetModel model) => _repository.InsertAsync(_mapper.Map(model));
+        public Task InsertAsync(PetModel model) => _repository.InsertAsync(_mapper.Map(model));
 
-        public Task UpdateSpendingAsync(PetModel model) => _repository.UpdateAsync(_mapper.Map(model));
-        public Task DeleteSpendingAsync(int modelId) => _repository.DeleteAsync(modelId);
+        public Task UpdateAsync(PetModel model) => _repository.UpdateAsync(_mapper.Map(model));
+        public Task DeleteAsync(int modelId) => _repository.DeleteAsync(modelId);
     }
 }

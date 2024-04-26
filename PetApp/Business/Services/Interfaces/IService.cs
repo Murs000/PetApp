@@ -5,10 +5,10 @@ namespace PetApp.Business.Services.Interfaces
 {
     public interface IService<T>
     {
-        Task<List<T>> GetSpendingsAsync();
-        Task<T> GetSpendingAsync(int modelId);
-        Task InsertSpendingAsync(T model);
-        Task UpdateSpendingAsync(T model);
-        Task DeleteSpendingAsync(int modelId);
+        Task<List<T>> GetAsync();
+        Task<T> GetAsync(int modelId);
+        Task InsertAsync(T model);
+        Task UpdateAsync(T model);
+        Task DeleteAsync(int modelId);
     }
 }
