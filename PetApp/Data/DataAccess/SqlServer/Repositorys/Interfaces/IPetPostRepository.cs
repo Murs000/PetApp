@@ -5,12 +5,11 @@ namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces
 {
     public interface IPetPostRepository : IDisposable
     {
-        Task<List<PetPost>> GetAsync();
-        Task<PetPost> GetAsync(int postId);
-        Task<List<PetPost>> GetAsync(PetType petType);
-        Task InsertAsync(PetPost post);
-        Task UpdateAsync(PetPost post);
-        Task DeleteAsync(int postId);
-        Task SaveAsync();
+        List<PetPost> Get();
+        PetPost Get(int postId);
+        List<PetPost> Get(PetType petType);
+        int Insert(PetPost post);
+        bool Update(PetPost post);
+        bool Delete(int postId);
     }
 }

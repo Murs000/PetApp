@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces;
+﻿using PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces;
 using PetApp.Data.Entity.Implementations;
 using PetApp.Data.Enum;
 
@@ -12,14 +11,21 @@ namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Implementations
         {
             _context = context;
         }
-        public Task<List<PetPost>> GetAsync() => _context.PetPosts.ToListAsync();
-        public async Task<PetPost> GetAsync(int postId) => await _context.PetPosts.FindAsync([postId]);
-        public async Task<List<PetPost>> GetAsync(PetType petType) => await _context.PetPosts.Where(x => x.PetType == petType).ToListAsync();
-        public async Task InsertAsync(PetPost post) => await _context.PetPosts.AddAsync(post);
-        public async Task UpdateAsync(PetPost post)
+        public List<PetPost> Get() => _context.PetPosts.ToList();
+        public PetPost Get(int postId) => _context.PetPosts.First(p => p.Id == postId);
+        public List<PetPost> Get (PetType petType) => _context.PetPosts.Where(x => x.PetType == petType).ToList();
+        public int Insert(PetPost post)
         {
-            var postFromDb = await _context.PetPosts.FindAsync([post.Id]);
-            if (postFromDb == null) return;
+            _context.PetPosts.Add(post);
+            _context.SaveChanges();
+
+            return post.Id;
+        } 
+        public bool Update(PetPost post)
+        {
+            var postFromDb = _context.PetPosts.First(p => p.Id == post.Id);
+            if (postFromDb == null) return false;
+
             postFromDb = new PetPost
             {
                 Id = post.Id,
@@ -27,18 +33,25 @@ namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Implementations
                 Description = post.Description,
                 CreatedAt = post.CreatedAt,
                 UpdatedAt = post.UpdatedAt,
-                Creator = await _context.Users.FindAsync([post.CreatorId]),
+                Creator = _context.Users.First(u => u.Id == post.CreatorId),
             };
 
+            _context.SaveChanges();
+
+            return true;
         }
-        public async Task DeleteAsync(int postId)
+        public bool Delete(int postId)
         {
-            var spendingFromDb = await _context.PetPosts.FindAsync([postId]);
-            if (spendingFromDb == null) return;
+            var spendingFromDb = _context.PetPosts.First(p => p.Id == postId); 
+            if (spendingFromDb == null) return false;
+
             _context.PetPosts.Remove(spendingFromDb);
+            _context.SaveChanges();
+
+            return true;
         }
 
-        public async Task SaveAsync() => await _context.SaveChangesAsync();
+
         private bool _disposed = false;
         protected virtual void Dispose(bool disposing)
         {

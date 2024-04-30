@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Connections;
 using Microsoft.EntityFrameworkCore;
 using PetApp.Business.Mappers.Implementations;
 using PetApp.Business.Mappers.Interfaces;
@@ -49,6 +50,7 @@ void Configure(WebApplication app)
         app.UseSwaggerUI();
         using var scope = app.Services.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<PetAppDb>();
+        db.Database.EnsureCreated();
     }
 
     app.UseHttpsRedirection();

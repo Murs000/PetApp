@@ -17,28 +17,11 @@ namespace PetApp.Business.Services.Implementations
             _mapper = mapper;
             _repository = repository;
         }
-        public async Task<PetModel> GetAsync(int modelId) => _mapper.Map(await _repository.GetAsync(modelId));
+        public List<PetModel> Get() => _mapper.Map(_repository.Get());
+        public PetModel Get(int modelId) => _mapper.Map(_repository.Get(modelId));
 
-        public async Task<List<PetModel>> GetAsync() => _mapper.Map(await _repository.GetAsync());
-
-        public Task InsertAsync(PetModel model)
-        {
-            var task = _repository.InsertAsync(_mapper.Map(model));
-            _repository.SaveAsync();
-            return task;
-        }
-
-        public Task UpdateAsync(PetModel model)
-        {
-            var task = _repository.UpdateAsync(_mapper.Map(model));
-            _repository.SaveAsync();
-            return task;
-        }
-        public Task DeleteAsync(int modelId)
-        {
-            var task = _repository.DeleteAsync(modelId);
-            _repository.SaveAsync();
-            return task;
-        }
+        public int Insert(PetModel model) => _repository.Insert(_mapper.Map(model));
+        public bool Update(PetModel model) => _repository.Update(_mapper.Map(model));
+        public bool Delete(int modelId) => _repository.Delete(modelId);
     }
 }

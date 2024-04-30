@@ -12,7 +12,8 @@ namespace PetApp.Presentation.APIs.Implementations
             app.MapGet("/pets", Get)
                 .Produces<List<PetModel>>(StatusCodes.Status200OK)
                 .WithName("GetAllPets")
-                .WithTags("Getters");
+                .WithTags("Getters")
+                .WithMetadata([0,"dog","very noisy",1]);
 
             app.MapGet("/pets/{id}", GetById)
                 .Produces<PetModel>(StatusCodes.Status200OK)
@@ -37,30 +38,30 @@ namespace PetApp.Presentation.APIs.Implementations
         }
 
         private async Task<IResult> Get(IPetService service) =>
-            await service.GetAsync() is List<PetModel> pets
+            service.Get() is List<PetModel> pets
             ? Results.Ok(pets)
             : Results.NotFound();
 
         private async Task<IResult> GetById(int id, IPetService service) =>
-            await service.GetAsync(id) is PetModel pet
+            service.Get(id) is PetModel pet
             ? Results.Ok(pet)
             : Results.NotFound();
 
         private async Task<IResult> Post([FromBody] PetModel pet, IPetService service)
         {
-            await service.InsertAsync(pet);
+            service.Insert(pet);
             return Results.Created($"/pets/{pet.Id}", pet);
         }
 
         private async Task<IResult> Put([FromBody] PetModel pet, IPetService service)
         {
-            await service.UpdateAsync(pet);
+            service.Update(pet);
             return Results.NoContent();
         }
 
         private async Task<IResult> Delete(int id, IPetService service)
         {
-            await service.DeleteAsync(id);
+            service.Delete(id);
             return Results.NoContent();
         }
     }
