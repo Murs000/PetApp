@@ -7,8 +7,7 @@
             app.MapGet("/pets", Get)
                 .Produces<List<PetModel>>(StatusCodes.Status200OK)
                 .WithName("GetAllPets")
-                .WithTags("Getters")
-                .WithMetadata([0, "dog", "very noisy", 1]);
+                .WithTags("Getters");
 
             app.MapGet("/pets/{id}", GetById)
                 .Produces<PetModel>(StatusCodes.Status200OK)

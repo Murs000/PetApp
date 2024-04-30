@@ -1,0 +1,6 @@
+@PetAppPresentation_Controllers__HostAddress = http://localhost:5095
+
+GET {{PetAppPresentation_Controllers__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
