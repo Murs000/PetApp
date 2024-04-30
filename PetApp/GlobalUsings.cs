@@ -1,0 +1,17 @@
+﻿global using PetApp.Business.Mappers.Interfaces;
+global using PetApp.Business.Models.Implementations;
+global using PetApp.Data.Entity.Implementations;
+global using PetApp.Business.Services.Interfaces;
+global using PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces;
+global using PetApp.Business.Models.Interfaces;
+global using PetApp.Data.Entity.Interfaces;
+global using PetApp.Data.Enum;
+global using Microsoft.EntityFrameworkCore;
+global using PetApp.Business.Mappers.Implementations;
+global using PetApp.Business.Services.Implementations;
+global using PetApp.Data.DataAccess.SqlServer;
+global using PetApp.Data.DataAccess.SqlServer.Repositorys.Implementations;
+global using PetApp.Presentation.APIs.Implementations;
+global using PetApp.Presentation.APIs.Interfaces;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.AspNetCore.Mvc;

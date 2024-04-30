@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PetApp.Data.Entity.Implementations;
-
-namespace PetApp.Data.DataAccess.SqlServer
+﻿namespace PetApp.Data.DataAccess.SqlServer
 {
     public class PetAppDb : DbContext
     {
