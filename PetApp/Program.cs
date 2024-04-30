@@ -1,6 +1,3 @@
-using PetAppPresentation.APIs.Implementations;
-using PetAppPresentation.APIs.Interfaces;
-
 var builder = WebApplication.CreateBuilder(args);
 
 RegisterServices(builder.Services);

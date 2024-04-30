@@ -1,6 +1,4 @@
-﻿using PetAppPresentation.APIs.Interfaces;
-
-namespace PetAppPresentation.APIs.Implementations
+﻿namespace PetAppPresentation.APIs.Implementations
 {
     public class PetApi : IApi
     {

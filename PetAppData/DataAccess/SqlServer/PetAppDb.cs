@@ -1,4 +1,6 @@
-﻿namespace PetAppData.DataAccess.SqlServer
+﻿
+
+namespace PetAppData.DataAccess.SqlServer
 {
     public class PetAppDb : DbContext
     {

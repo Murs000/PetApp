@@ -1,6 +1,4 @@
-﻿using PetAppData.DataAccess.SqlServer;
-
-namespace PetAppData.DataAccess.SqlServer.Repositorys.Implementations
+﻿namespace PetAppData.DataAccess.SqlServer.Repositorys.Implementations
 {
     public class PetPostRepository : IPetPostRepository
     {
