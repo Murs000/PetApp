@@ -1,7 +1,4 @@
-﻿using PetApp.Data.Entity.Interfaces;
-using System.ComponentModel.DataAnnotations;
-
-namespace PetApp.Data.Entity.Implementations
+﻿namespace PetApp.Data.Entity.Implementations
 {
     public class User : IEntity
     {

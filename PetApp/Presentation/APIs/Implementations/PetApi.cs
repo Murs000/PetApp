@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PetApp.Business.Models.Implementations;
-using PetApp.Business.Services.Interfaces;
-using PetApp.Presentation.APIs.Interfaces;
-
-namespace PetApp.Presentation.APIs.Implementations
+﻿namespace PetApp.Presentation.APIs.Implementations
 {
     public class PetApi : IApi
     {

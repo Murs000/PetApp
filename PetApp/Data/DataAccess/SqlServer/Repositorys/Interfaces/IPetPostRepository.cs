@@ -1,7 +1,4 @@
-﻿using PetApp.Data.Entity.Implementations;
-using PetApp.Data.Enum;
-
-namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces
+﻿namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces
 {
     public interface IPetPostRepository : IDisposable
     {

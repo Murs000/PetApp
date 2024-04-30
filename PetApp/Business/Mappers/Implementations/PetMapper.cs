@@ -1,10 +1,4 @@
-﻿using PetApp.Business.Mappers.Interfaces;
-using PetApp.Business.Models.Implementations;
-using PetApp.Data.Entity.Implementations;
-using PetApp.Data.Entity.Interfaces;
-using System.Collections.Generic;
-
-namespace PetApp.Business.Mappers.Implementations
+﻿namespace PetApp.Business.Mappers.Implementations
 {
     public class PetMapper : IPetMapper
     {

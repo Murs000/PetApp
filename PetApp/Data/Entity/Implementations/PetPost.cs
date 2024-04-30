@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using PetApp.Data.Entity.Interfaces;
-using PetApp.Data.Enum;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace PetApp.Data.Entity.Implementations
+﻿namespace PetApp.Data.Entity.Implementations
 {
     public class PetPost : IEntity
     {

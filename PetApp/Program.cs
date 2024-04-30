@@ -1,15 +1,3 @@
-using Microsoft.AspNetCore.Connections;
-using Microsoft.EntityFrameworkCore;
-using PetApp.Business.Mappers.Implementations;
-using PetApp.Business.Mappers.Interfaces;
-using PetApp.Business.Services.Implementations;
-using PetApp.Business.Services.Interfaces;
-using PetApp.Data.DataAccess.SqlServer;
-using PetApp.Data.DataAccess.SqlServer.Repositorys.Implementations;
-using PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces;
-using PetApp.Presentation.APIs.Implementations;
-using PetApp.Presentation.APIs.Interfaces;
-
 var builder = WebApplication.CreateBuilder(args);
 
 RegisterServices(builder.Services);

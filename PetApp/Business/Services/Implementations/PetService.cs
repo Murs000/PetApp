@@ -1,12 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PetApp.Business.Mappers.Interfaces;
-using PetApp.Business.Models.Implementations;
-using PetApp.Business.Services.Interfaces;
-using PetApp.Data.DataAccess.SqlServer;
-using PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces;
-using PetApp.Data.Entity.Implementations;
-
-namespace PetApp.Business.Services.Implementations
+﻿namespace PetApp.Business.Services.Implementations
 {
     public class PetService : IPetService
     {

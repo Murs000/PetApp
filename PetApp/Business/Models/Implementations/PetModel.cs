@@ -1,10 +1,4 @@
-﻿
-
-using PetApp.Business.Models.Interfaces;
-using PetApp.Data.Entity.Implementations;
-using PetApp.Data.Enum;
-
-namespace PetApp.Business.Models.Implementations
+﻿namespace PetApp.Business.Models.Implementations
 {
     public class PetModel : IApiModel
     {

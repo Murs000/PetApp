@@ -1,8 +1,4 @@
-﻿using PetApp.Data.DataAccess.SqlServer.Repositorys.Interfaces;
-using PetApp.Data.Entity.Implementations;
-using PetApp.Data.Enum;
-
-namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Implementations
+﻿namespace PetApp.Data.DataAccess.SqlServer.Repositorys.Implementations
 {
     public class PetPostRepository : IPetPostRepository
     {
