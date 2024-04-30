@@ -9,11 +9,39 @@
             _mapper = mapper;
             _repository = repository;
         }
-        public List<PetModel> Get() => _mapper.Map(_repository.Get());
-        public PetModel Get(int modelId) => _mapper.Map(_repository.Get(modelId));
+        public List<PetModel> Get() 
+        {
+            List<PetModel>  models = _mapper.Map(_repository.Get());
 
-        public int Insert(PetModel model) => _repository.Insert(_mapper.Map(model));
-        public bool Update(PetModel model) => _repository.Update(_mapper.Map(model));
+            int count = 0;
+            foreach (PetModel model in models)
+            {
+                model.No = count;
+                count++;
+            }
+
+            return models;
+        } 
+        public PetModel Get(int modelId) => _mapper.Map(_repository.Get(modelId));
+        public int Insert(PetModel model) 
+        {
+            PetPost petPost = _mapper.Map(model);
+
+            petPost.Creator.Id = 4;
+            petPost.CreatedAt = DateTime.Now;
+            petPost.UpdatedAt = DateTime.Now;
+
+            return _repository.Insert(petPost);
+        } 
+        public bool Update(PetModel model)
+        {
+            PetPost petPost = _mapper.Map(model);
+
+            petPost.UpdatedAt = DateTime.Now;
+
+            return _repository.Update(petPost);
+        }
+        
         public bool Delete(int modelId) => _repository.Delete(modelId);
     }
 }
